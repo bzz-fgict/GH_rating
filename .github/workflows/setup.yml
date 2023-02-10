@@ -1,10 +1,12 @@
+name: Setup Repository
 on:
   push:
     branches:
       - '**'
 jobs:
-  name: Setup Test data
-  runs-on: ubuntu-latest
-  steps:
-    - name: Foobar
-      run: echo "foobar"
+  setup-repo:
+    name: Setup Test data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Foobar
+        run: echo "foobar"
