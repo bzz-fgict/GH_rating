@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: education/autograding@v1
+      - uses: education/autograding@v2
         id: autograding
-      - run: echo "${{ github.actor }} ${{ github.repository }} ${{ steps.autograding.outputs.Points }}"
+      - name: export-grade
+        run: |
+          echo "${{ github.actor }}"
+          echo "${{ github.repository }}"
+          echo "${{ steps.autograding.outputs.Points }}"
