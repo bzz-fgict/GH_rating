@@ -1,0 +1,19 @@
+name: GitHub Classroom Workflow
+
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    if: ${{ !contains(github.actor, 'classroom') }}
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: education/autograding@v1
+        id: autograding
+      - run: echo "${{ github.actor }} ${{ github.repository }} ${{ steps.autograder.outputs.Points }}"
