@@ -16,8 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: education/autograding@v1
         id: autograding
-      - name: export-grade
-        run: |
+      - run: |
           echo "${{ github.actor }}"
           echo "${{ github.repository }}"
           echo "${{ steps.autograding.outputs.Points }}"
